@@ -4,7 +4,7 @@
       class="dialog"
       v-for="(message, index) in messages"
       :class="{ 'hide': message.hide, 'warn': message.type === 'warn', 'alert': message.type === 'alert' }"
-      :style="{ 'bottom': getBottomDistance(index) }"
+      :style="{ 'bottom': getBottomDistance(message) }"
       :key="'message' + index"
     >
       {{ message.text }}
@@ -47,13 +47,12 @@
           clearMessages();
         }, 7000);
       },
-      getBottomDistance: function(index) {
-        // const visableDialogs = this.messages.filter(function(m) {
-        //   return !m.hide;
-        // });
-        // const index = visableDialogs.indexOf(message);
-        // console.log('index', index);
-        const bottomDistance = `calc(${80 * (this.messages.length - index - 1)}px + ${(this.messages.length - 1 - index) * 10}px)`;
+      getBottomDistance: function(message) {
+        const visableDialogs = this.messages.filter(function(m) {
+          return !m.hide;
+        });
+        const index = visableDialogs.indexOf(message);
+        const bottomDistance = `calc(${80 * (visableDialogs.length - index - 1)}px + ${(visableDialogs.length - 1 - index) * 10}px)`;
         return bottomDistance;
       },
       onClickCloseBtn: function(index) {

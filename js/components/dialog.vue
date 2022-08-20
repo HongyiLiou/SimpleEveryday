@@ -70,12 +70,6 @@
           }
         }
       },
-      messages: {
-        deep: true,
-        handler: function(newVal) {
-          console.log('message', newVal);
-        },
-      }
     },
   }
 </script>

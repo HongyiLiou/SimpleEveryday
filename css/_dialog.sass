@@ -1,0 +1,79 @@
+.dialogContainer
+  position: fixed
+  right: 10px
+  bottom: 10px
+  .dialog
+    display: flex
+    position: absolute
+    +size(300px, 80px)
+    padding: 0 20px 0 70px
+    right: 0
+    align-items: center
+    border: solid 5px var(--colorDialogNormalBorder)
+    border-radius: 10px
+    font-weight: 500
+    color: var(--colorDialogNormalText)
+    background: var(--colorMainLight)
+    overflow: hidden
+    transition: bottom 0.5s
+    animation: fadeInBottom 0.5s forwards
+    &::before, &::after
+      content: '\f00c'
+      position: absolute
+      font-family: FontAwesome
+    &::before
+      width: 30px
+      top: 50%
+      left: 20px
+      color: var(--colorDialogNormalIcon)
+      text-align: center
+      font-size: 200%
+      transform: translateY(-50%)
+    &::after
+      top: -65%
+      left: 62%
+      font-size: 1000%
+      color: var(--colorDialogNormalBorder)
+      pointer-events: none
+      z-index: -1
+    &.warn
+      border: solid 5px var(--colorDialogWarnBorder)
+      color: var(--colorDialogWarnText)
+      &::before, &::after
+        content: '\f12a'
+      &::before
+        color: var(--colorDialogWarnIcon)
+      &::after
+        color: var(--colorDialogWarnBorder)
+      .closeBtn
+        &::before
+          color: var(--colorDialogWarnIcon)
+    &.alert
+      border: solid 5px var(--colorDialogAlertBorder)
+      color: var(--colorDialogAlertText)
+      &::before, &::after
+        content: '\f00d'
+      &::before
+        color: var(--colorDialogAlertIcon)
+      &::after
+        color: var(--colorDialogAlertBorder)
+      .closeBtn
+        &::before
+          color: var(--colorDialogAlertIcon)
+    &.hide
+      animation: fadeOutTop 0.5s forwards
+    .closeBtn
+      +size(20px, 20px)
+      position: absolute
+      display: flex
+      top: 5px
+      right: 5px
+      align-items: center
+      justify-content: center
+      background: transparent
+      cursor: pointer
+      &::before
+        content: '\f00d'
+        color: var(--colorDialogNormalIcon)
+        font-family: FontAwesome
+        font-size: 120%

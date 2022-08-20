@@ -1,0 +1,100 @@
+// * Basic settings */
+
+*
+  font-family: 'Muli', sans-serif, '微軟正黑體'
+  // font-family: 'Lato', sans-serif
+  // font-family: 'Pinyon Script', cursive
+  // font-family: '微軟正黑體'
+  box-sizing: border-box
+  // user-select: none
+ul,li
+  list-style: none
+  margin: 0
+  padding: 0
+html, body
+  +size(100vw, 100%)
+  padding: 0
+  margin: 0
+  overflow: hidden
+  ::selection
+    background: var(--colorMainDeep)
+    color: var(--colorLightShadowLight)
+html
+  font-size: 16px
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+  -webkit-appearance: none
+
+input[type="number"]
+  -moz-appearance: textfield
+
+// Colors Setting
+:root
+  --colorMain: #ffefae
+  --colorMainDeep: #ffc400
+  --colorMainLight: #fdfaed
+  --colorLightBg: #f8edca
+  --colorLightShadow: rgba(179, 150, 72, 0.5)
+  --colorLightShadowLight: #fff
+  --colorLightInputBg: #fff8dc
+  --colorLightInputText: #a07507
+  --colorLightLabel: #c4beae
+  --colorLightBoard: #f8f8f8
+  --colorDisabled: #f1f1f1
+  --colorError: #f06b6b
+  --colorErrorBg: #fde7e7
+  --colorDialogNormalBorder: #cae0c7
+  --colorDialogNormalIcon: #7daf77
+  --colorDialogNormalText: #3e5a3b
+  --colorDialogWarnBorder: #f8df8b
+  --colorDialogWarnIcon: #dd9441
+  --colorDialogWarnText: #583603
+  --colorDialogAlertBorder: #ffcbcb
+  --colorDialogAlertIcon: #dd4141
+  --colorDialogAlertText: #580303
+
+
+// Animations
++keyframes(shake)
+  0%
+    transform: translateX(0)
+  20%
+    transform: translateX(-5%)
+  40%
+    transform: translateX(5%)
+  60%
+    transform: translateX(-2.5%)
+  80%
+    transform: translateX(2.5%)
+  100%
+    transform: translateX(0)
++keyframes(rotate)
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
++keyframes(fadeInBottom)
+  0%
+    opacity: 0
+    transform: translate(0, 100%)
+  100%
+    opacity: 1
+    transform: translate(0, 0%)
++keyframes(fadeOutTop)
+  0%
+    opacity: 1
+    transform: translate(0, 0%)
+  100%
+    opacity: 0
+    transform: translate(0, -100%)
+
+
+// RWD
+@media screen and (max-width: 1000px)
+  html, body
+    width: 100vw !important
+    touch-action: manipulation
+    overflow-x: hidden
+    overflow-y: auto
+

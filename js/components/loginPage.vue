@@ -280,7 +280,6 @@
         this.active = 'login';
       },
       onKeyboardEnter: function(e) {
-        console.log('e', e);
         const loginLoading = this.login.isLoading;
         const signupLoading = this.signup.isLoading;
         const key = e.key;

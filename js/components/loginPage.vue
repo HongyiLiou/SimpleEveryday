@@ -255,7 +255,7 @@
         const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
         // Email validate
         if (this.signup.email.search(emailRule) === -1) {
-          this.signup.emailError = 'Email 格式不正確。';
+          this.signup.emailError = 'Email 格式不正確';
           isPassed = false;
         }
         // Password again validate

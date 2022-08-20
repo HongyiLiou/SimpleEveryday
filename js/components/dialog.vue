@@ -48,11 +48,17 @@
         }, 7000);
       },
       getBottomDistance: function(index) {
+        // const visableDialogs = this.messages.filter(function(m) {
+        //   return !m.hide;
+        // });
+        // const index = visableDialogs.indexOf(message);
+        // console.log('index', index);
         const bottomDistance = `calc(${80 * (this.messages.length - index - 1)}px + ${(this.messages.length - 1 - index) * 10}px)`;
         return bottomDistance;
       },
       onClickCloseBtn: function(index) {
         this.messages[index].hide = true;
+        this.$forceUpdate();
       },
     },
     watch: {
@@ -61,7 +67,6 @@
         handler: function(newVal) {
           this.gotMessage = newVal;
           if (this.gotMessage.text) {
-            this.gotMessage.key = Math.floor(Math.random() * 1000);
             this.setMessage(this.gotMessage);
           }
         }

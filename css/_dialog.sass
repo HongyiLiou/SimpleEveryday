@@ -1,4 +1,4 @@
-.dialogContainer
+.dialog_container
   position: fixed
   right: 10px
   bottom: 10px
@@ -45,7 +45,7 @@
         color: var(--colorDialogWarnIcon)
       &::after
         color: var(--colorDialogWarnBorder)
-      .closeBtn
+      .close_btn
         &::before
           color: var(--colorDialogWarnIcon)
     &.alert
@@ -57,12 +57,12 @@
         color: var(--colorDialogAlertIcon)
       &::after
         color: var(--colorDialogAlertBorder)
-      .closeBtn
+      .close_btn
         &::before
           color: var(--colorDialogAlertIcon)
     &.hide
       animation: fadeOutTop 0.5s forwards
-    .closeBtn
+    .close_btn
       +size(20px, 20px)
       position: absolute
       display: flex

@@ -1,5 +1,5 @@
 <template>
-  <div class="dialogContainer" v-if="messages.length > 0">
+  <div class="dialog_container" v-if="messages.length > 0">
     <div
       class="dialog"
       v-for="(message, index) in messages"
@@ -8,7 +8,7 @@
       :key="'message' + index"
     >
       {{ message.text }}
-      <button class="closeBtn" @click="onClickCloseBtn(index)"></button>
+      <button class="close_btn" @click="onClickCloseBtn(index)"></button>
     </div>
   </div>
 </template>

@@ -71,7 +71,33 @@
           </button>
         </div>
       </section>
-      <section class="picture"></section>
+      <input id="picture_block" name="picture_block" type="checkbox" class="toggle">
+      <section class="picture_block">
+        <label for="picture_block">
+          <div class="picture">
+            <div class="sun"></div>
+            <div class="moon"></div>
+            <div class="cloud">
+              <div class="cloud_right_top">
+                <div class="connect"></div>
+                <div class="group"></div>
+              </div>
+              <div class="cloud_right_bottom">
+                <div class="connect"></div>
+                <div class="group"></div>
+              </div>
+              <div class="cloud_left">
+                <div class="connect"></div>
+                <div class="group"></div>
+              </div>
+            </div>
+            <div class="mountains">
+              <div class="mountain_big"></div>
+              <div class="mountain_small"></div>
+            </div>
+          </div>
+        </label>
+      </section>
     </article>
     <button class="test_btn" @click="setMessage({type: 'normal', text: '測試Dialog Normal'})">測試Dialog Normal</button>
     <button class="test_btn" @click="setMessage({type: 'warn', text: '測試Dialog Warn'})">測試Dialog Warn</button>

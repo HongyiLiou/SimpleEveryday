@@ -206,6 +206,134 @@
         padding: 30px 55px 10px 20px
       &.error
         border: solid 1px var(--colorError)
-  .picture
+  .toggle
+    display: none
+    &:checked
+      ~.picture_block
+        background-position: top
+        .picture
+          .sun
+            transform: rotate(-180deg)
+          .moon
+            transform: rotate(-0turn)
+          .mountains
+            .mountain_big
+              background: var(--colorLightShadow)
+            .mountain_small
+              background: var(--colorLightBgDeep)
+  .picture_block
+    position: relative
     +size(50%, 100%)
-    background: #f5cb8c
+    background: linear-gradient(to top, var(--colorLightShadowLight), var(--colorLightInputBg), var(--colorLightShadow))
+    background-size: 100% 200%
+    background-position: bottom
+    overflow: hidden
+    transition: 0.5s
+    label
+      position: absolute
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+      cursor: pointer
+      .picture
+        position: absolute
+        top: 0
+        right: 0
+        left: 0
+        bottom: 0
+        .sun
+          position: absolute
+          +size(80px, 80px)
+          top: 80px
+          left: 120px
+          border-radius: 50%
+          background: var(--colorLightShadowLight)
+          box-shadow: 0 0 20px var(--colorMain)
+          transition: 1s
+          transform-origin: 0 400%
+        .moon
+          position: absolute
+          +size(100px, 100px)
+          top: 50px
+          left: 70px
+          border-radius: 50%
+          box-shadow: 20px 20px var(--colorLightShadowLight)
+          transition: 1s
+          transform-origin: 0 550%
+          transform: rotate(+0.5turn)
+        .cloud
+          position: absolute
+          width: 100%
+          top: 0
+          left: 0
+          .cloud_right_top,
+          .cloud_right_bottom,
+          .cloud_left
+            position: absolute
+            +size(60px, 10px)
+            top: 100px
+            right: 50px
+            border-radius: 100px
+            background: var(--colorLightBg)
+            transition: 0.5s
+            animation: cloudFloat 19s linear infinite
+            .connect
+              position: absolute
+              +size(40%, 100%)
+              bottom: -100%
+              left: 25%
+              background: var(--colorLightBg)
+              &::before
+                content: ''
+                position: absolute
+                +size(100%, 100%)
+                left: -100%
+                border-radius: 100px
+                background: transparent
+                box-shadow: 15px 0 5px 2px var(--colorLightBg), 15px 0 5px 2px var(--colorLightBg)
+              &::after
+                content: ''
+                position: absolute
+                +size(100%, 100%)
+                right: -100%
+                border-radius: 100px
+                background: transparent
+                box-shadow: -15px 0 5px 2px var(--colorLightBg), -15px 0 5px 2px var(--colorLightBg)
+            .group
+              position: absolute
+              +size(150%, 100%)
+              bottom: -200%
+              left: -20%
+              border-radius: 100px
+              background: var(--colorLightBg)
+          .cloud_right_bottom
+            top: 180px
+            right: 100px
+            animation: cloudFloat 20s linear infinite
+          .cloud_left
+            top: 160px
+            left: 80px
+            animation: cloudFloat 18s linear infinite
+        .mountains
+          position: absolute
+          width: 100%
+          bottom: 0
+          .mountain_big
+            position: absolute
+            +size(250px, 300px)
+            bottom: 0
+            right: -20px
+            background: var(--colorLightBgDeep)
+            border-radius: 50% 50% 0 0
+            // box-shadow: 5px 5px 5px var(--colorLightInputText)
+            transition: 0.5s
+          .mountain_small
+            position: absolute
+            +size(200px, 220px)
+            bottom: 0
+            left: 40px
+            background: var(--colorMain)
+            border-radius: 50% 50% 0 0
+            // box-shadow: 5px 5px 5px var(--colorLightInputText)
+            transition: 0.5s

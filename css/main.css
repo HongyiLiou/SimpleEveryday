@@ -725,14 +725,6 @@ input[type=number] {
 .login_area .toggle:checked ~ .picture_block {
   background-position: top;
 }
-.login_area .toggle:checked ~ .picture_block .picture .sun {
-  -webkit-transform: rotate(-180deg);
-          transform: rotate(-180deg);
-}
-.login_area .toggle:checked ~ .picture_block .picture .moon {
-  -webkit-transform: rotate(0turn);
-          transform: rotate(0turn);
-}
 .login_area .toggle:checked ~ .picture_block .picture .mountains .mountain_big {
   background: var(--colorLightShadow);
 }

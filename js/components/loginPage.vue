@@ -71,12 +71,12 @@
           </button>
         </div>
       </section>
-      <input id="picture_block" name="picture_block" type="checkbox" class="toggle">
+      <input id="picture_block" name="picture_block" type="checkbox" class="toggle" @change="onChangePicture">
       <section class="picture_block">
         <label for="picture_block">
           <div class="picture">
-            <div class="sun"></div>
-            <div class="moon"></div>
+            <div class="sun" :style="{'transform': `rotate(${picture.sunMoonRotateTurn}turn)`}"></div>
+            <div class="moon" :style="{'transform': `rotate(${picture.sunMoonRotateTurn + 0.5}turn)`}"></div>
             <div class="cloud">
               <div class="cloud_right_top">
                 <div class="connect"></div>
@@ -133,6 +133,9 @@
         },
         showPassword: false,
         active: 'login',
+        picture: {
+          sunMoonRotateTurn: 0, // Sun 0, Moon 0.5
+        },
       };
     },
     mounted: function() {
@@ -179,6 +182,9 @@
       onInputSignupEmail: function(e) {
         this.signup.emailError = null;
         this.signup.email = e.target.value;
+      },
+      onChangePicture: function() {
+        this.picture.sunMoonRotateTurn -= 0.5;
       },
       onClickLogin: function() {
         const that = this;

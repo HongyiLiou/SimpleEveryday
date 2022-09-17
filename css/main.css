@@ -105,6 +105,7 @@ input[type=number] {
   --colorLightBg: #f8edca;
   --colorLightBgDeep: #f5cb8c;
   --colorLightShadow: rgba(179, 150, 72, 0.5);
+  --colorLightMainOp10: rgba(255, 196, 0, 0.05);
   --colorLightShadowLight: #fff;
   --colorLightInputBg: #fff8dc;
   --colorLightInputText: #a07507;
@@ -419,6 +420,37 @@ input[type=number] {
 }
 .test_btn:hover {
   background: #999;
+}
+
+.background .circle_left {
+  position: absolute;
+  width: 110vh;
+  height: 110vh;
+  top: -20%;
+  left: -10%;
+  background: var(--colorLightMainOp10);
+  border-radius: 50%;
+}
+.background .circle_left::before {
+  content: "";
+  width: 140vh;
+  height: 140vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: solid 2vh var(--colorLightMainOp10);
+}
+.background .circle_right {
+  position: absolute;
+  width: 80vh;
+  height: 80vh;
+  top: 20%;
+  right: -10%;
+  background: var(--colorLightMainOp10);
+  border-radius: 50%;
 }
 
 .login_area {

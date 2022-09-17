@@ -1,6 +1,9 @@
 <template>
   <div v-if="activePage === 'login'">
-    <div class="background"></div>
+    <div class="background">
+      <div class="circle_left"></div>
+      <div class="circle_right"></div>
+    </div>
     <article class="login_area">
       <section class="input_block">
         <div class="login_board" :class="{ 'signup': active === 'signup' }">

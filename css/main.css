@@ -288,7 +288,13 @@ input[type=number] {
   height: 100vh;
   top: 0;
   left: 0;
-  background: linear-gradient(30deg, var(--colorLightBg), var(--colorLightShadowLight));
+  background: -webkit-gradient(linear, left top, right top, from(var(--colorLightBg)), to(var(--colorMain))), url("/images/oscillation.svg") left top/cover no-repeat fixed;
+  background: linear-gradient(to right, var(--colorLightBg), var(--colorMain)), url("/images/oscillation.svg") left top/cover no-repeat fixed;
+  -webkit-mask-image: url("/images/oscillation.svg");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: left top;
+  -webkit-mask-size: cover;
+  color: #fff;
   z-index: -1;
 }
 
@@ -420,37 +426,6 @@ input[type=number] {
 }
 .test_btn:hover {
   background: #999;
-}
-
-.background .circle_left {
-  position: absolute;
-  width: 110vh;
-  height: 110vh;
-  top: -20%;
-  left: -10%;
-  background: var(--colorLightMainOp10);
-  border-radius: 50%;
-}
-.background .circle_left::before {
-  content: "";
-  width: 140vh;
-  height: 140vh;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  border-radius: 50%;
-  border: solid 2vh var(--colorLightMainOp10);
-}
-.background .circle_right {
-  position: absolute;
-  width: 80vh;
-  height: 80vh;
-  top: 20%;
-  right: -10%;
-  background: var(--colorLightMainOp10);
-  border-radius: 50%;
 }
 
 .login_area {

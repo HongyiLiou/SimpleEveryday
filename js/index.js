@@ -1,6 +1,7 @@
-const loginPageComponent = httpVueLoader('js/components/loginPage.vue');
-const homePageComponent = httpVueLoader('js/components/homePage.vue');
+const loginPageComponent = httpVueLoader('js/components/pageLogin.vue');
+const homePageComponent = httpVueLoader('js/components/pageHome.vue');
 const dialogComponent = httpVueLoader('js/components/dialog.vue');
+const cursorComponent = httpVueLoader('js/components/cursor.vue');
 
 
 new Vue({
@@ -9,6 +10,7 @@ new Vue({
     'login-page-component': loginPageComponent,
     'home-page-component': homePageComponent,
     'dialog-component': dialogComponent,
+    'cursor-component': cursorComponent,
   },
   data: function() {
     return {
@@ -24,11 +26,19 @@ new Vue({
       dialog: {
         message: null,
       },
+      cursor: {
+        position: { x: null, y: null },
+        show: true,
+      },
     };
   }, 
   methods: {
     setDialogMessage: function(message) {
       this.dialog.message = message;
+    },
+    handleScreenClick: function(event) {
+      const e = event || window.event;
+      this.cursor.position = { x: e.clientX, y: e.clientY };
     },
   },
 })

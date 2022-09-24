@@ -16,7 +16,7 @@
   <title>Hong-Yi Liou | Simple Everyday</title>
 </head>
 <body>
-  <main id="app">
+  <main id="app" :theme="theme" :color="mainColor" @click="handleScreenClick">
     <div class="background"></div>
 
     <!-- Page Components -->
@@ -25,6 +25,7 @@
 
     <!-- Components -->
     <dialog-component :message="dialog.message" :radius="layout.popupBorderRadius"></dialog-component>
+    <cursor-component :show="cursor.show" :position="cursor.position"></cursor-component>
 
     <!-- Layout -->
     <footer class="footer" v-if="activePage !== 'login'"></footer>

@@ -56,6 +56,31 @@ input[type="number"]
   --colorDialogAlertIcon: #dd4141
   --colorDialogAlertText: #580303
 
+[color='pink']
+  --colorMain: #ffaeae
+  --colorMainDeep: #ff0000
+  --colorMainLight: #fdeded
+  --colorLightBg: #f8ccca
+  --colorLightBgDeep: #f5938c
+  --colorLightShadow: rgba(179, 88, 72, 0.5)
+  --colorLightMainOp10: rgba(255, 0, 0, 0.1)
+  // --colorLightShadowLight: #fff
+  --colorLightInputBg: #ffdedc
+  --colorLightInputText: #a00707
+  --colorLightLabel: #c4afae
+  --colorLightBoard: #f8f8f8
+  --colorDisabled: #f1f1f1
+  --colorError: #f06b6b
+  --colorErrorBg: #fde7e7
+  --colorDialogNormalBorder: #cae0c7
+  --colorDialogNormalIcon: #7daf77
+  --colorDialogNormalText: #3e5a3b
+  --colorDialogWarnBorder: #f8df8b
+  --colorDialogWarnIcon: #dd9441
+  --colorDialogWarnText: #583603
+  --colorDialogAlertBorder: #ffcbcb
+  --colorDialogAlertIcon: #dd4141
+  --colorDialogAlertText: #580303
 
 // Animations
 +keyframes(shake)
@@ -95,6 +120,13 @@ input[type="number"]
     transform: translateX(400px)
   100%
     transform: translateX(-400px)
++keyframes(cursor)
+  0%
+    opacity: 1
+    transform: translate(-50%, -50%) scale(1)
+  100%
+    opacity: 0
+    transform: translate(-50%, -50%) scale(2)
 
 
 // RWD

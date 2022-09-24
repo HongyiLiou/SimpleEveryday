@@ -125,6 +125,32 @@ input[type=number] {
   --colorDialogAlertText: #580303;
 }
 
+[color=pink] {
+  --colorMain: #ffaeae;
+  --colorMainDeep: #ff0000;
+  --colorMainLight: #fdeded;
+  --colorLightBg: #f8ccca;
+  --colorLightBgDeep: #f5938c;
+  --colorLightShadow: rgba(179, 88, 72, 0.5);
+  --colorLightMainOp10: rgba(255, 0, 0, 0.1);
+  --colorLightInputBg: #ffdedc;
+  --colorLightInputText: #a00707;
+  --colorLightLabel: #c4afae;
+  --colorLightBoard: #f8f8f8;
+  --colorDisabled: #f1f1f1;
+  --colorError: #f06b6b;
+  --colorErrorBg: #fde7e7;
+  --colorDialogNormalBorder: #cae0c7;
+  --colorDialogNormalIcon: #7daf77;
+  --colorDialogNormalText: #3e5a3b;
+  --colorDialogWarnBorder: #f8df8b;
+  --colorDialogWarnIcon: #dd9441;
+  --colorDialogWarnText: #583603;
+  --colorDialogAlertBorder: #ffcbcb;
+  --colorDialogAlertIcon: #dd4141;
+  --colorDialogAlertText: #580303;
+}
+
 @-webkit-keyframes shake {
   0% {
     -webkit-transform: translateX(0);
@@ -265,6 +291,30 @@ input[type=number] {
             transform: translateX(-400px);
   }
 }
+@-webkit-keyframes cursor {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(2);
+            transform: translate(-50%, -50%) scale(2);
+  }
+}
+@keyframes cursor {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(2);
+            transform: translate(-50%, -50%) scale(2);
+  }
+}
 @media screen and (max-width: 1000px) {
   html, body {
     width: 100vw !important;
@@ -282,20 +332,63 @@ input[type=number] {
   background: #000;
 }
 
+main {
+  width: 100%;
+  height: 100%;
+}
+
+.cursor_circle {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: var(--colorMainDeep);
+  border-radius: 50%;
+  pointer-events: none;
+  -webkit-animation: cursor 0.4s 0.05s forwards;
+          animation: cursor 0.4s 0.05s forwards;
+  z-index: 10;
+}
+.cursor_circle::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: var(--colorMainDeep);
+  border-radius: 50%;
+  -webkit-animation: cursor 0.4s forwards;
+          animation: cursor 0.4s forwards;
+}
+
 .background {
   position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
-  background: -webkit-gradient(linear, left top, right top, from(var(--colorLightBg)), to(var(--colorMain))), url("../images/oscillation.svg") left top/cover no-repeat fixed;
-  background: linear-gradient(to right, var(--colorLightBg), var(--colorMain)), url("../images/oscillation.svg") left top/cover no-repeat fixed;
+  background: var(--colorLightShadowLight);
+  z-index: -1;
+}
+.background::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left top, right top, from(var(--colorLightBg)), to(var(--colorMainDeep))), url("../images/oscillation.svg") left top/cover no-repeat fixed;
+  background: linear-gradient(to right, var(--colorLightBg), var(--colorMainDeep)), url("../images/oscillation.svg") left top/cover no-repeat fixed;
   -webkit-mask-image: url("../images/oscillation.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: left top;
   -webkit-mask-size: cover;
-  color: #fff;
-  z-index: -1;
 }
 
 .footer {
@@ -328,7 +421,7 @@ input[type=number] {
   border-radius: 10px;
   font-weight: 500;
   color: var(--colorDialogNormalText);
-  background: var(--colorMainLight);
+  background: var(--colorLightShadowLight);
   overflow: hidden;
   -webkit-transition: bottom 0.5s;
   transition: bottom 0.5s;

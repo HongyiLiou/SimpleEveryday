@@ -288,9 +288,9 @@ input[type=number] {
   height: 100vh;
   top: 0;
   left: 0;
-  background: -webkit-gradient(linear, left top, right top, from(var(--colorLightBg)), to(var(--colorMain))), url("/images/oscillation.svg") left top/cover no-repeat fixed;
-  background: linear-gradient(to right, var(--colorLightBg), var(--colorMain)), url("/images/oscillation.svg") left top/cover no-repeat fixed;
-  -webkit-mask-image: url("/images/oscillation.svg");
+  background: -webkit-gradient(linear, left top, right top, from(var(--colorLightBg)), to(var(--colorMain))), url("../images/oscillation.svg") left top/cover no-repeat fixed;
+  background: linear-gradient(to right, var(--colorLightBg), var(--colorMain)), url("../images/oscillation.svg") left top/cover no-repeat fixed;
+  -webkit-mask-image: url("../images/oscillation.svg");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: left top;
   -webkit-mask-size: cover;

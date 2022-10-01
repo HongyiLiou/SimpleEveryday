@@ -379,8 +379,8 @@ main {
 .background::before {
   content: "";
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   background: -webkit-gradient(linear, left top, right top, from(var(--colorLightBg)), to(var(--colorMainDeep))), url("../images/oscillation.svg") left top/cover no-repeat fixed;
@@ -512,6 +512,33 @@ main {
   font-size: 120%;
 }
 
+@media screen and (max-width: 476px) {
+  .dialog_container {
+    right: 7vw;
+    bottom: 50px;
+  }
+  .dialog_container .dialog {
+    width: 86vw;
+    height: 50px;
+    padding: 0 45px 0 60px !important;
+    -webkit-box-shadow: 0 3px 8px rgba(153, 153, 153, 0.2);
+            box-shadow: 0 3px 8px rgba(153, 153, 153, 0.2);
+    background: var(--colorDialogNormalBorder);
+    border: none !important;
+    font-size: 70%;
+    font-weight: bold;
+  }
+  .dialog_container .dialog.warn {
+    background: var(--colorDialogWarnBorder);
+  }
+  .dialog_container .dialog.alert {
+    background: var(--colorDialogAlertBorder);
+  }
+  .dialog_container .dialog .close_btn {
+    width: 38px;
+    height: 38px;
+  }
+}
 .test_btn {
   width: 100px;
   height: 50px;
@@ -530,8 +557,9 @@ main {
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 800px;
+  width: 85vw;
   height: 600px;
+  max-width: 800px;
   background: #fdfdfd;
   -webkit-box-shadow: 0 15px 20px -15px var(--colorLightShadow);
           box-shadow: 0 15px 20px -15px var(--colorLightShadow);
@@ -724,6 +752,13 @@ main {
   transition: 0.2s;
 }
 .login_area .input_block .login_btn:disabled {
+  background: var(--colorDisabled);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: var(--colorLightLabel);
+  pointer-events: none;
+}
+.login_area .input_block .login_btn:disabled:hover {
   background: var(--colorDisabled);
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -990,9 +1025,149 @@ main {
   width: 200px;
   height: 220px;
   bottom: 0;
-  left: 40px;
+  right: 160px;
   background: var(--colorMain);
   border-radius: 50% 50% 0 0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+
+@media screen and (max-width: 800px) {
+  .login_area {
+    width: 85vw;
+    height: 700px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  .login_area .input_block {
+    width: 100%;
+    height: 66.6%;
+  }
+  .login_area .input_block .login_board {
+    padding: 18px 100px 0 100px;
+  }
+  .login_area .input_block .login_board.signup .wrapper:last-child {
+    -webkit-transform: translateX(calc(-100% - 200px));
+            transform: translateX(calc(-100% - 200px));
+  }
+  .login_area .input_block .login_board .wrapper {
+    width: calc(50% - 100px);
+  }
+  .login_area .input_block .login_board .input_group.active .label {
+    top: 7px;
+    font-size: 50%;
+  }
+  .login_area .input_block .login_board .input_group .label {
+    font-size: 80%;
+  }
+  .login_area .input_block .login_board .input_group .show_password_btn {
+    font-size: 100%;
+  }
+  .login_area .input_block .login_board label .checkbox {
+    width: 25px;
+    height: 25px;
+  }
+  .login_area .input_block .login_board label .checkbox_text {
+    font-size: 80%;
+  }
+  .login_area .input_block input {
+    margin: 0 0 15px 0;
+    padding: 30px 20px 7px 20px !important;
+    font-size: 80%;
+  }
+  .login_area .input_block input:focus ~ .label {
+    top: 7px !important;
+    font-size: 50% !important;
+  }
+  .login_area .input_block .button_board {
+    padding: 0 100px;
+  }
+  .login_area .input_block .button_board.signup {
+    margin-top: -10px;
+  }
+  .login_area .input_block .login_btn {
+    margin-top: 15px;
+    padding: 12px 0;
+  }
+  .login_area .picture_block {
+    width: 100%;
+    height: 33.3%;
+  }
+  .login_area .picture_block label .picture .sun {
+    width: 60px;
+    height: 60px;
+    top: 30px;
+    left: 80px;
+  }
+  .login_area .picture_block label .picture .moon {
+    width: 70px;
+    height: 70px;
+    top: 10px;
+    left: 50px;
+    -webkit-box-shadow: 15px 15px var(--colorLightShadowLight);
+            box-shadow: 15px 15px var(--colorLightShadowLight);
+  }
+  .login_area .picture_block label .picture .mountains {
+    -webkit-transform-origin: bottom right;
+            transform-origin: bottom right;
+    -webkit-transform: scale(0.6);
+            transform: scale(0.6);
+  }
+}
+@media screen and (max-width: 476px) {
+  .login_area .input_block .login_board {
+    padding: 18px 35px 0 35px;
+  }
+  .login_area .input_block .login_board.signup .wrapper:last-child {
+    -webkit-transform: translateX(calc(-100% - 70px));
+            transform: translateX(calc(-100% - 70px));
+  }
+  .login_area .input_block .login_board .wrapper {
+    width: calc(50% - 35px);
+  }
+  .login_area .input_block .login_board .input_group.active .label {
+    top: 7px;
+    font-size: 50%;
+  }
+  .login_area .input_block .login_board .input_group .label {
+    font-size: 80%;
+  }
+  .login_area .input_block .login_board .input_group .show_password_btn {
+    font-size: 100%;
+  }
+  .login_area .input_block .login_board label .checkbox {
+    width: 25px;
+    height: 25px;
+  }
+  .login_area .input_block .login_board label .checkbox_text {
+    font-size: 80%;
+  }
+  .login_area .input_block input {
+    margin: 0 0 15px 0;
+    padding: 30px 20px 7px 20px !important;
+    font-size: 80%;
+  }
+  .login_area .input_block input:focus ~ .label {
+    top: 7px !important;
+    font-size: 50% !important;
+  }
+  .login_area .input_block .button_board {
+    padding: 0 35px;
+  }
+  .login_area .input_block .button_board.signup {
+    margin-top: -10px;
+  }
+  .login_area .input_block .login_btn {
+    margin-top: 15px;
+    padding: 12px 0;
+  }
+  .login_area .picture_block {
+    width: 100%;
+    height: 33.3%;
+  }
 }

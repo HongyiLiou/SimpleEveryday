@@ -51,8 +51,11 @@
         const visableDialogs = this.messages.filter(function(m) {
           return !m.hide;
         });
+        const windowWidth = window.innerWidth;
+        const dialogHeight = windowWidth >= 476 ? 80 : 60;
+        const dialogMargin = windowWidth >= 476 ? 10 : 2;
         const index = visableDialogs.indexOf(message);
-        const bottomDistance = `calc(${80 * (visableDialogs.length - index - 1)}px + ${(visableDialogs.length - 1 - index) * 10}px)`;
+        const bottomDistance = `calc(${dialogHeight * (visableDialogs.length - index - 1)}px + ${(visableDialogs.length - 1 - index) * dialogMargin}px)`;
         return bottomDistance;
       },
       onClickCloseBtn: function(index) {

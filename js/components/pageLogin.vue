@@ -280,6 +280,8 @@
         // 登入後 8 小時內自動重新登入
         if (lastLoginTime && (parseInt(now - lastLoginTime) / 1000 / 60 / 60) < 8 && loginInformation.account) {
           that.onLogin(loginInformation.account, loginInformation.password);
+        } else if (loginInformation && !loginInformation.rememberMe) {
+          removeItemFromLocalStorage('login_information');
         }
       },
       signupValidation: function() {

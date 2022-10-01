@@ -6,7 +6,8 @@
 .login_area
   display: flex
   +ab_center
-  +size(800px, 600px)
+  +size(85vw, 600px)
+  max-width: 800px
   background: #fdfdfd
   box-shadow: 0 15px 20px -15px var(--colorLightShadow)
   border-radius: 10px
@@ -145,6 +146,11 @@
         box-shadow: none
         color: var(--colorLightLabel)
         pointer-events: none
+        &:hover
+          background: var(--colorDisabled)
+          box-shadow: none
+          color: var(--colorLightLabel)
+          pointer-events: none
         .arrow
           &::before
             color: var(--colorLightLabel)
@@ -332,8 +338,115 @@
             position: absolute
             +size(200px, 220px)
             bottom: 0
-            left: 40px
+            right: 160px
             background: var(--colorMain)
             border-radius: 50% 50% 0 0
             // box-shadow: 5px 5px 5px var(--colorLightInputText)
             transition: 0.5s
+
+
+// RWD
+@media screen and ( max-width: 800px )
+  .login_area
+    +size(85vw, 700px)
+    flex-direction: column-reverse
+    justify-content: flex-end
+    .input_block
+      +size(100%, 66.6%)
+      .login_board
+        padding: 18px 100px 0 100px
+        &.signup
+          .wrapper
+            &:last-child
+              transform: translateX(calc(-100% - 200px))
+        .wrapper
+          width: calc(50% - 100px)
+        .input_group
+          &.active
+            .label
+              top: 7px
+              font-size: 50%
+          .label
+            font-size: 80%
+          .show_password_btn
+            font-size: 100%
+        label
+          .checkbox
+            +size(25px, 25px)
+          .checkbox_text
+            font-size: 80%
+      input
+        margin: 0 0 15px 0
+        padding: 30px 20px 7px 20px !important
+        font-size: 80%
+        &:focus
+          ~.label
+            top: 7px !important
+            font-size: 50% !important
+      .button_board
+        padding: 0 100px
+        &.signup
+          margin-top: -10px
+      .login_btn
+        margin-top: 15px
+        padding: 12px 0
+    .picture_block
+      +size(100%, 33.3%)
+      label
+        .picture
+          .sun
+            +size(60px, 60px)
+            top: 30px
+            left: 80px
+          .moon
+            +size(70px, 70px)
+            top: 10px
+            left: 50px
+            box-shadow: 15px 15px var(--colorLightShadowLight)
+          .mountains
+            transform-origin: bottom right
+            transform: scale(0.6)
+
+
+@media screen and ( max-width: 476px )
+  .login_area
+    .input_block
+      .login_board
+        padding: 18px 35px 0 35px
+        &.signup
+          .wrapper
+            &:last-child
+              transform: translateX(calc(-100% - 70px))
+        .wrapper
+          width: calc(50% - 35px)
+        .input_group
+          &.active
+            .label
+              top: 7px
+              font-size: 50%
+          .label
+            font-size: 80%
+          .show_password_btn
+            font-size: 100%
+        label
+          .checkbox
+            +size(25px, 25px)
+          .checkbox_text
+            font-size: 80%
+      input
+        margin: 0 0 15px 0
+        padding: 30px 20px 7px 20px !important
+        font-size: 80%
+        &:focus
+          ~.label
+            top: 7px !important
+            font-size: 50% !important
+      .button_board
+        padding: 0 35px
+        &.signup
+          margin-top: -10px
+      .login_btn
+        margin-top: 15px
+        padding: 12px 0
+    .picture_block
+      +size(100%, 33.3%)

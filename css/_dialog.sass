@@ -77,3 +77,23 @@
         color: var(--colorDialogNormalIcon)
         font-family: FontAwesome
         font-size: 120%
+
+// RWD
+@media screen and ( max-width: 476px )
+  .dialog_container
+    right: 7vw
+    bottom: 50px
+    .dialog
+      +size(86vw, 50px)
+      padding: 0 45px 0 60px !important
+      box-shadow: 0 3px 8px rgba(#999, 0.2)
+      background: var(--colorDialogNormalBorder)
+      border: none !important
+      font-size: 70%
+      font-weight: bold
+      &.warn
+        background: var(--colorDialogWarnBorder)
+      &.alert
+        background: var(--colorDialogAlertBorder)
+      .close_btn
+        +size(38px, 38px)

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="activePage === 'login'">
+  <div v-if="activePage === 'login'" :class="{ 'is_login': isLogin }">
     <div class="background"></div>
     <article class="login_area">
       <section class="input_block">
@@ -109,7 +109,7 @@
 <script>
   module.exports = {
     name: 'login-page-component',
-    props: ['activePage'],
+    props: ['activePage', 'isLogin'],
     data: function() {
       return {
         login: {
@@ -155,6 +155,7 @@
             password: password || that.login.password,
             rememberMe: that.login.rememberMe,
             lastTime: new Date(),
+            isLogin: true,
           },
         };
         removeItemFromLocalStorage('login_information');
@@ -220,12 +221,14 @@
         $.get(userSettingApi, params).done(res => {
           console.log(res);
           that.login.isLoading = false;
+          // 登入失敗
           if (res.status === 'failed') {
             if (res.errorField === 'account') {
               that.login.accountError = res.message;
             } else {
               that.login.passwordError = res.message;
             }
+          // 登入成功
           } else if (res.status === 'successful') {
             const message = {
               type: 'normal',
@@ -233,6 +236,7 @@
             };
             that.setMessage(message);
             that.setLocalLoginInfo(account, password);
+            this.$emit('after-login');
           }
         });
       },
@@ -278,7 +282,7 @@
           lastLoginTime = new Date(loginInformation.lastTime);
         }
         // 登入後 8 小時內自動重新登入
-        if (lastLoginTime && (parseInt(now - lastLoginTime) / 1000 / 60 / 60) < 8 && loginInformation.account) {
+        if (lastLoginTime && (parseInt(now - lastLoginTime) / 1000 / 60 / 60) < 8 && loginInformation.account && loginInformation.isLogin) {
           that.onLogin(loginInformation.account, loginInformation.password);
         } else if (loginInformation && !loginInformation.rememberMe) {
           removeItemFromLocalStorage('login_information');

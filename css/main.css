@@ -315,6 +315,54 @@ input[type=number] {
             transform: translate(-50%, -50%) scale(2);
   }
 }
+@-webkit-keyframes hideCenter {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.5);
+            transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+@keyframes hideCenter {
+  0% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.5);
+            transform: translate(-50%, -50%) scale(0.5);
+  }
+}
+@-webkit-keyframes showCenter {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.5);
+            transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes showCenter {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%) scale(0.5);
+            transform: translate(-50%, -50%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+  }
+}
 @media screen and (max-width: 1000px) {
   html, body {
     width: 100vw !important;
@@ -548,6 +596,11 @@ main {
   background: #999;
 }
 
+.is_login .login_area {
+  -webkit-animation: hideCenter 1s forwards;
+          animation: hideCenter 1s forwards;
+}
+
 .login_area {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -563,8 +616,10 @@ main {
   background: #fdfdfd;
   -webkit-box-shadow: 0 15px 20px -15px var(--colorLightShadow);
           box-shadow: 0 15px 20px -15px var(--colorLightShadow);
-  border-radius: 10px;
+  border-radius: 10px 60px 10px 60px;
   overflow: hidden;
+  -webkit-animation: showCenter 1s forwards;
+          animation: showCenter 1s forwards;
 }
 .login_area .input_block {
   width: 50%;

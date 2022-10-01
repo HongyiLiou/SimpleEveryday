@@ -20,7 +20,7 @@
     <div class="background"></div>
 
     <!-- Page Components -->
-    <login-page-component :active-page="activePage" @dialog-message="setDialogMessage"></login-page-component>
+    <login-page-component :active-page="activePage" :is-login="user.isLogin" @dialog-message="setDialogMessage" @after-login="afterLogin"></login-page-component>
     <home-page-component :active-page="activePage"></home-page-component>
 
     <!-- Components -->
@@ -29,6 +29,7 @@
 
     <!-- Layout -->
     <footer class="footer" v-if="activePage !== 'login'"></footer>
+    <button v-if="user.isLogin" style="cursor: pointer;" @click="onLogout">登出</button>
   </main>
 
 

@@ -3,6 +3,9 @@
   cursor: pointer
   &:hover
     background: #999
+.is_login
+  .login_area
+    animation: hideCenter 1s forwards
 .login_area
   display: flex
   +ab_center
@@ -10,8 +13,9 @@
   max-width: 800px
   background: #fdfdfd
   box-shadow: 0 15px 20px -15px var(--colorLightShadow)
-  border-radius: 10px
+  border-radius: 10px 60px 10px 60px
   overflow: hidden
+  animation: showCenter 1s forwards
   .input_block
     width: 50%
     background: linear-gradient(90deg, var(--colorLightBoard), var(--colorLightShadowLight))

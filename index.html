@@ -28,7 +28,8 @@
     <cursor-component :show="cursor.show" :position="cursor.position"></cursor-component>
 
     <!-- Layout -->
-    <footer class="footer" v-if="activePage !== 'login'"></footer>
+    <!-- <footer class="footer" v-if="activePage !== 'login'"></footer> -->
+    <sidebar-component></sidebar-component>
     <button v-if="user.isLogin" style="cursor: pointer;" @click="onLogout">登出</button>
   </main>
 

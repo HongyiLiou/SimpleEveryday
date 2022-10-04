@@ -99,9 +99,9 @@
         </label>
       </section>
     </article>
-    <button class="test_btn" @click="setMessage({type: 'normal', text: '測試Dialog Normal'})">測試Dialog Normal</button>
+    <!-- <button class="test_btn" @click="setMessage({type: 'normal', text: '測試Dialog Normal'})">測試Dialog Normal</button>
     <button class="test_btn" @click="setMessage({type: 'warn', text: '測試Dialog Warn'})">測試Dialog Warn</button>
-    <button class="test_btn" @click="setMessage({type: 'alert', text: '測試Dialog Alert'})">測試Dialog Alert</button>
+    <button class="test_btn" @click="setMessage({type: 'alert', text: '測試Dialog Alert'})">測試Dialog Alert</button> -->
   </div>
 </template>
 

@@ -1,7 +1,8 @@
 const loginPageComponent = httpVueLoader('js/components/pageLogin.vue');
 const homePageComponent = httpVueLoader('js/components/pageHome.vue');
-const dialogComponent = httpVueLoader('js/components/dialog.vue');
-const cursorComponent = httpVueLoader('js/components/cursor.vue');
+const sidebarComponent = httpVueLoader('js/components/layout/sidebar.vue');
+const dialogComponent = httpVueLoader('js/components/layout/dialog.vue');
+const cursorComponent = httpVueLoader('js/components/layout/cursor.vue');
 
 
 new Vue({
@@ -9,6 +10,7 @@ new Vue({
   components: {
     'login-page-component': loginPageComponent,
     'home-page-component': homePageComponent,
+    'sidebar-component': sidebarComponent,
     'dialog-component': dialogComponent,
     'cursor-component': cursorComponent,
   },

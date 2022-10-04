@@ -385,6 +385,12 @@ main {
   height: 100%;
 }
 
+.page {
+  padding-left: 250px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
 .cursor_circle {
   width: 15px;
   height: 15px;
@@ -437,6 +443,151 @@ main {
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: left top;
   -webkit-mask-size: cover;
+}
+
+.sidebar {
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: -webkit-gradient(linear, right top, left top, from(var(--colorLightBoard)), to(var(--colorLightShadowLight)));
+  background: linear-gradient(to left, var(--colorLightBoard), var(--colorLightShadowLight));
+  border-radius: 0 60px 0 0;
+  border: solid 1px var(--colorMain);
+}
+
+.sidebar_bg {
+  width: 100%;
+  height: 150px;
+  background: url(../images/background/yellowBg.jpg) center center no-repeat;
+  background-size: cover;
+  border-radius: 0 60px 0 60px;
+  opacity: 0.6;
+}
+
+.user_photo {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 60px;
+  left: 50%;
+  background-color: #ddd;
+  background-position: center center;
+  background-size: cover;
+  border: solid 5px var(--colorLightShadowLight);
+  border-radius: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.sidebar_menus {
+  width: 100%;
+  margin-top: 40px;
+  padding-left: 25px;
+}
+.sidebar_menus li {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px 12px 55px;
+  margin-bottom: 7px;
+  border-radius: 100px 0 0 100px;
+  border: solid 1px var(--colorDisabled);
+  border-right: none;
+  font-size: 95%;
+  background: var(--colorLightBoard);
+  color: var(--colorLightLabel);
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  cursor: pointer;
+  overflow: hidden;
+}
+.sidebar_menus li:hover {
+  background: var(--colorLightShadowLight);
+}
+.sidebar_menus li::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  top: 50%;
+  left: 12px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: FontAwesome;
+  font-size: 180%;
+  font-weight: 400;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.sidebar_menus li.active {
+  background: var(--colorLightInputBg);
+  border-color: var(--colorMain);
+  border-right: solid 3px var(--colorMainDeep) !important;
+  color: var(--colorMainDeep);
+  cursor: default;
+}
+.sidebar_menus li.home::before {
+  content: "\f015";
+}
+.sidebar_menus li.balance_sheet::before {
+  content: "\f0d6";
+  font-size: 140%;
+}
+.sidebar_menus li.wait::before {
+  content: "\f110";
+  font-size: 140%;
+}
+.sidebar_menus li.settings::before {
+  content: "\f085";
+  font-size: 130%;
+}
+.sidebar_menus li.logout {
+  border-color: var(--colorMain);
+  color: var(--colorLightShadow);
+  z-index: 1;
+}
+.sidebar_menus li.logout:hover::after {
+  background-position: 0% center;
+}
+.sidebar_menus li.logout::before {
+  content: "\f08b";
+  font-size: 160%;
+}
+.sidebar_menus li.logout::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left top, right top, from(var(--colorLightInputBg)), to(transparent));
+  background: linear-gradient(to right, var(--colorLightInputBg), transparent);
+  background-position: 50% center;
+  background-size: 200%;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  z-index: -1;
+}
+.sidebar_menus li .en {
+  margin-left: 5px;
+  font-size: 85%;
+  font-weight: 100;
+  vertical-align: baseline;
+}
+.sidebar_menus .divider {
+  width: 100%;
+  height: 1px;
+  margin: 40px 0 100px 0;
+  background: -webkit-gradient(linear, left top, right top, from(transparent), color-stop(20%, var(--colorLightLabel)), to(transparent));
+  background: linear-gradient(to right, transparent, var(--colorLightLabel) 20%, transparent);
 }
 
 .footer {
@@ -597,8 +748,8 @@ main {
 }
 
 .is_login .login_area {
-  -webkit-animation: hideCenter 1s forwards;
-          animation: hideCenter 1s forwards;
+  -webkit-animation: hideCenter 0.7s forwards;
+          animation: hideCenter 0.7s forwards;
 }
 
 .login_area {
@@ -614,12 +765,11 @@ main {
   height: 600px;
   max-width: 800px;
   background: #fdfdfd;
-  -webkit-box-shadow: 0 15px 20px -15px var(--colorLightShadow);
-          box-shadow: 0 15px 20px -15px var(--colorLightShadow);
+  border: solid 1px var(--colorMain);
   border-radius: 10px 60px 10px 60px;
   overflow: hidden;
-  -webkit-animation: showCenter 1s forwards;
-          animation: showCenter 1s forwards;
+  -webkit-animation: showCenter 0.7s forwards;
+          animation: showCenter 0.7s forwards;
 }
 .login_area .input_block {
   width: 50%;

@@ -1,8 +1,8 @@
 <template>
-  <div v-if="activePage === 'home'">
-    <header class="header">
+  <div class="page" v-if="activePage === 'home'">
+    <!-- <header class="header">
       <div style="color: #fff">{{ text }}</div>
-    </header>
+    </header> -->
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 
-const userSettingApi = 'https://script.google.com/macros/s/AKfycbxcqaZ5yiYjCsV2qP79ixtETrlbOy_Lr41bqz4I_NA99lN7r2FszKnKZHY5IVX6hVfj7g/exec';
+const userSettingApi = 'https://script.google.com/macros/s/AKfycbz0YRDAy_gLUCNqurE177zzjRz9MP5uS-BEt7qmD1_YvnKOBEtV40Jbj1tn_4NwSSEOUw/exec';
 
 /**
  * 設定 LocalStorage 參數

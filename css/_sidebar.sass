@@ -1,0 +1,109 @@
+.sidebar
+  position: fixed
+  +size(250px, 100vh)
+  top: 0
+  left: 0
+  background: linear-gradient(to left, var(--colorLightBoard), var(--colorLightShadowLight))
+  border-radius: 0 60px 0 0
+  border: solid 1px var(--colorMain)
+  // box-shadow: 10px 10px 20px -18px var(--colorLightShadow)
+  // overflow: hidden
+.sidebar_bg
+  +size(100%, 150px)
+  background: url(../images/background/yellowBg.jpg) center center no-repeat
+  background-size: cover
+  border-radius: 0 60px 0 60px
+  opacity: 0.6
+.user_photo
+  position: absolute
+  +size(120px, 120px)
+  top: 60px
+  left: 50%
+  background-color: #ddd
+  background-position: center center
+  background-size: cover
+  border: solid 5px var(--colorLightShadowLight)
+  border-radius: 50%
+  transform: translateX(-50%)
+.sidebar_menus
+  width: 100%
+  margin-top: 40px
+  padding-left: 25px
+  li
+    position: relative
+    width: 100%
+    padding: 12px 20px 12px 55px
+    margin-bottom: 7px
+    border-radius: 100px 0 0 100px
+    border: solid 1px var(--colorDisabled)
+    border-right: none
+    font-size: 95%
+    // font-weight: 900
+    background: var(--colorLightBoard)
+    color: var(--colorLightLabel)
+    transition: 0.1s
+    cursor: pointer
+    overflow: hidden
+    &:hover
+      background: var(--colorLightShadowLight)
+      // color: var(--colorLightInputText)
+    &::before
+      content: ''
+      display: flex
+      position: absolute
+      +size(36px, 36px)
+      top: 50%
+      left: 12px
+      align-items: center
+      justify-content: center
+      font-family: FontAwesome
+      font-size: 180%
+      font-weight: 400
+      transform: translateY(-50%)
+    &.active
+      background: var(--colorLightInputBg)
+      border-color: var(--colorMain)
+      border-right: solid 3px var(--colorMainDeep) !important
+      color: var(--colorMainDeep)
+      cursor: default
+    &.home::before
+      content: '\f015'
+    &.balance_sheet::before
+      content: '\f0d6'
+      font-size: 140%
+    &.wait::before
+      content: '\f110'
+      font-size: 140%
+    &.settings::before
+      content: '\f085'
+      font-size: 130%
+    &.logout
+      border-color: var(--colorMain)
+      color: var(--colorLightShadow)
+      z-index: 1
+      &:hover
+        &::after
+          background-position: 0% center
+      &::before
+        content: '\f08b'
+        font-size: 160%
+      &::after
+        content: ''
+        position: absolute
+        +size(100%, 100%)
+        top: 0
+        left: 0
+        background: linear-gradient(to right, var(--colorLightInputBg), transparent)
+        background-position: 50% center
+        background-size: 200%
+        transition: 0.1s
+        z-index: -1
+    .en
+      margin-left: 5px
+      font-size: 85%
+      font-weight: 100
+      vertical-align: baseline
+  .divider
+    +size(100%, 1px)
+    margin: 40px 0 100px 0
+    background: linear-gradient(to right, transparent, var(--colorLightLabel) 20%, transparent)

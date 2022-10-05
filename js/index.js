@@ -17,16 +17,9 @@ new Vue({
   data: function() {
     return {
       activePage: 'login',
-      theme: 'light',
-      mainColor: 'yellow',
       user: {
         isLogin: false,
-      },
-      layout: {
-        mobile: 'default',
-        web: 'default',
-        popupBorderRadius: 10,
-        popupButtonBorderRadius: 10,
+        settings: {},
       },
       dialog: {
         message: null,
@@ -38,16 +31,17 @@ new Vue({
     };
   }, 
   methods: {
-    afterLogin: function() {
+    afterLogin: function(userData) {
       const that = this;
       this.user.isLogin = true;
+      this.getUserSettings(userData);
       setTimeout(function() {
         that.activePage = 'home';
-      }, 2000);
+      }, 700);
     },
     onLogout: function() {
       const loginInformation = JSON.parse(localStorage.getItem('login_information'));
-      const rememberMe = loginInformation.rememberMe;
+      const rememberMe = loginInformation.rememberMe || false;
       const that = this;
       if (!rememberMe) {
         removeItemFromLocalStorage('login_information');
@@ -76,6 +70,22 @@ new Vue({
     handleScreenClick: function(event) {
       const e = event || window.event;
       this.cursor.position = { x: e.clientX, y: e.clientY };
+    },
+    handlePageChange: function(page) {
+      this.activePage = page;
+      if (page === 'login') {
+        this.onLogout();
+      }
+    },
+    getUserSettings: function(userSettings) {
+      this.user.settings = userSettings;
+    },
+  },
+  watch: {
+    activePage: {
+      handler: function(newVal) {
+        console.log('page', newVal);
+      },
     },
   },
 })

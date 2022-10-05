@@ -271,6 +271,30 @@ input[type=number] {
             transform: translate(0, -100%);
   }
 }
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0%);
+            transform: translate(0, 0%);
+  }
+}
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-100%, 0);
+            transform: translate(-100%, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, 0%);
+            transform: translate(0, 0%);
+  }
+}
 @-webkit-keyframes cloudFloat {
   0% {
     -webkit-transform: translateX(400px);
@@ -455,6 +479,8 @@ main {
   background: linear-gradient(to left, var(--colorLightBoard), var(--colorLightShadowLight));
   border-radius: 0 60px 0 0;
   border: solid 1px var(--colorMain);
+  -webkit-animation: fadeInLeft 0.7s forwards;
+          animation: fadeInLeft 0.7s forwards;
 }
 
 .sidebar_bg {

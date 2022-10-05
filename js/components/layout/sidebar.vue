@@ -1,18 +1,22 @@
 <template>
-  <div class="sidebar">
+  <div class="sidebar" v-if="activePage !== 'login'">
     <div class="sidebar_bg"></div>
     <div class="user_photo" :style="{backgroundImage: 'url(/images/pictureHolder.png)'}"></div>
     <ul class="sidebar_menus">
-      <li :class="[menu.class, {'active': menu.active}]" v-for="(menu, index) in menus" :key="`menu_${index}`">
+      <li
+        :class="[menu.class, {'active': menu.active}]"
+        v-for="(menu, index) in menus" :key="`menu_${index}`"
+        @click="changePage(null, index)"
+      >
         {{ menu.label }}
         <span class="en">{{ menu.en }}</span>
       </li>
       <div class="divider"></div>
-      <li class="settings">
+      <li class="settings" :class="{ 'active': activePage === 'settings' }" @click="changePage('settings')">
         設定
         <span class="en">Settings</span>
       </li>
-      <li class="logout">
+      <li class="logout" @click="changePage('login')">
         登出
         <span class="en">Log Out</span>
       </li>
@@ -23,7 +27,7 @@
 <script>
   module.exports = {
     name: 'home-page-component',
-    props: ['position', 'show'],
+    props: ['activePage'],
     data: function() {
       return {
         menus: [
@@ -34,6 +38,20 @@
           { label: '下次再來', en: 'See U', page: 'wait', class: 'wait', active: false },
         ],
       };
+    },
+    methods: {
+      changePage: function(page, index) {
+        this.menus.map((menu, dataIndex) => {
+          menu.active = false;
+          if (dataIndex === index) {
+            menu.active = true;
+            this.$emit('page-change', menu.page);
+          }
+        });
+        if (page) {
+          this.$emit('page-change', page);
+        }
+      },
     },
   }
 </script>

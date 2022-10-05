@@ -236,7 +236,7 @@
             };
             that.setMessage(message);
             that.setLocalLoginInfo(account, password);
-            this.$emit('after-login');
+            this.$emit('after-login', res.data);
           }
         });
       },

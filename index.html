@@ -16,7 +16,12 @@
   <title>Hong-Yi Liou | Simple Everyday</title>
 </head>
 <body>
-  <main id="app" :theme="theme" :color="mainColor" @click="handleScreenClick">
+  <main
+    id="app"
+    :theme="user.settings.theme || 'light'"
+    :color="user.settings.mainColor || 'yellow'"
+    @click="handleScreenClick"
+  >
     <div class="background"></div>
 
     <!-- Page Components -->
@@ -24,12 +29,12 @@
     <home-page-component :active-page="activePage"></home-page-component>
 
     <!-- Components -->
-    <dialog-component :message="dialog.message" :radius="layout.popupBorderRadius"></dialog-component>
+    <dialog-component :message="dialog.message" :radius="user.settings.popupBorderRadius"></dialog-component>
     <cursor-component :show="cursor.show" :position="cursor.position"></cursor-component>
 
     <!-- Layout -->
     <!-- <footer class="footer" v-if="activePage !== 'login'"></footer> -->
-    <sidebar-component></sidebar-component>
+    <sidebar-component :active-page="activePage" @page-change="handlePageChange"></sidebar-component>
     <button v-if="user.isLogin" style="cursor: pointer;" @click="onLogout">登出</button>
   </main>
 

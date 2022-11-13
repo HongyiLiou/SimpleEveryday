@@ -34,8 +34,8 @@
 
     <!-- Layout -->
     <!-- <footer class="footer" v-if="activePage !== 'login'"></footer> -->
-    <sidebar-component :active-page="activePage" @page-change="handlePageChange"></sidebar-component>
-    <button v-if="user.isLogin" style="cursor: pointer;" @click="onLogout">登出</button>
+    <sidebar-component :active-page="activePage" @page-change="handlePageChange" :store="store"></sidebar-component>
+    <!-- <button v-if="user.isLogin" style="cursor: pointer;" @click="onLogout">登出</button> -->
   </main>
 
 

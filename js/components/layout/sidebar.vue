@@ -1,7 +1,9 @@
 <template>
   <div class="sidebar" v-if="activePage !== 'login'">
     <div class="sidebar_bg"></div>
-    <div class="user_photo" :style="{backgroundImage: 'url(/images/pictureHolder.png)'}"></div>
+    <div class="user_photo" :style="{backgroundImage: 'url(/images/pictureHolder.png)'}">
+      <button class="photo_change_button"></button>
+    </div>
     <ul class="sidebar_menus">
       <li
         :class="[menu.class, {'active': menu.active}]"
@@ -27,7 +29,7 @@
 <script>
   module.exports = {
     name: 'home-page-component',
-    props: ['activePage'],
+    props: ['activePage', 'store'],
     data: function() {
       return {
         menus: [
@@ -51,6 +53,9 @@
         if (page) {
           this.$emit('page-change', page);
         }
+      },
+      getStore: function() {
+        console.log('this.store', this.store);
       },
     },
   }

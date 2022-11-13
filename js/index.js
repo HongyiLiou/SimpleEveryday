@@ -16,7 +16,7 @@ new Vue({
   },
   data: function() {
     return {
-      activePage: 'login',
+      activePage: 'home',
       user: {
         isLogin: false,
         settings: {},
@@ -43,6 +43,10 @@ new Vue({
       const loginInformation = JSON.parse(localStorage.getItem('login_information'));
       const rememberMe = loginInformation.rememberMe || false;
       const that = this;
+      const message = {
+        type: 'normal',
+        text: '已登出',
+      };
       if (!rememberMe) {
         removeItemFromLocalStorage('login_information');
       } else {
@@ -63,9 +67,14 @@ new Vue({
       }
       loginInformation.isLogin = false;
       this.user.isLogin = false;
+      this.setDialogMessage(message);
     },
-    setDialogMessage: function(message) {
-      this.dialog.message = message;
+    /**
+     * Set dialog message
+     * @param {Object} messageObject { type: 'normal' | 'warn' | 'danger', text: string }
+     */
+    setDialogMessage: function(messageObject) {
+      this.dialog.message = messageObject;
     },
     handleScreenClick: function(event) {
       const e = event || window.event;
@@ -86,6 +95,11 @@ new Vue({
       handler: function(newVal) {
         console.log('page', newVal);
       },
+    },
+  },
+  computed: {
+    store: function() {
+      return this;
     },
   },
 })
